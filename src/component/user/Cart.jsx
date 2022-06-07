@@ -3,6 +3,7 @@
 import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { storeContext } from '../../context/context';
+import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
 
 function Cart() {
   const location = useLocation();
@@ -11,16 +12,14 @@ function Cart() {
 
   const handleNavigation = () => {
     console.log("clicked")
-    const { pathname } = location;
-    navigate(pathname + "/order_form");
+    navigate(ROUTES_LINKS.TO_ORDER_FORM);
   }
 
 
 
   return (
-    <button onClick={handleNavigation}>
-      <i></i>
-      <span>{numProducts}</span>
+    <button className='cart' onClick={handleNavigation}>
+      <i className="fa-solid fa-cart-plus">{numProducts}</i>
     </button>
   )
 }

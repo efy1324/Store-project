@@ -5,6 +5,8 @@
 
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
+import './admin.css'
 
 function AdminInput() {
 
@@ -19,8 +21,7 @@ function AdminInput() {
   const onAdminClick = () => {
     if (value === password) {
     console.log("clicked")
-    const { pathname } = location;
-    navigate(pathname + "/Admin_site//*");
+    navigate(ROUTES_LINKS.TO_ADMIN_SITE);
     }
     else{
       setValue("")
@@ -29,8 +30,8 @@ function AdminInput() {
 
   return (
     <div className='adminEntry'>
-      <input onChange={onInputChange} type="password" value={value} />
-      <button onClick={onAdminClick}>entry</button>
+      <input placeholder='manager' onChange={onInputChange} type="password" value={value} />
+      <button onClick={onAdminClick}><i className="fa-solid fa-lock"></i></button>
     </div>
   )
 }

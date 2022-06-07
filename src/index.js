@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import ContextProvider from './context/context';
 import { BrowserRouter } from 'react-router-dom';
+import { StoreProvider } from './context/store.provider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
     <BrowserRouter>
-        <ContextProvider>
-            <App />
-        </ContextProvider>
+        <StoreProvider>
+            <ContextProvider>
+                <App />
+            </ContextProvider>
+        </StoreProvider>
     </BrowserRouter>
 );
 

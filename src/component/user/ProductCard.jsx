@@ -2,18 +2,32 @@ import React, { useContext, useEffect, useState } from 'react'
 import { storeContext } from '../../context/context'
 import './ProductCard.css'
 import './GridCard.css';
+import { useStore } from '../../context/store.provider';
+import CartOrderForm from './CartOrderForm';
 
 
 function ProductCard() {
-  const { setNumProducts, storeData, searchData, setSearchData, value, setChoosenProducts,choosenProducts } = useContext(storeContext)
+  const { setTotalPrice, setNumProducts, storeData, searchData, setSearchData, value, setChoosenProducts, choosenProducts } = useContext(storeContext)
+  const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
+
   // const {  imgUrl, name, cattegory, price } = SearchData;
 
-  const handleClickAddToCart = (e) => {
+  const handleClickAddToCart = (id, category, imgUrl, price, productName) => {
     setNumProducts(prev => prev + 1)
-    const newProduct = [...choosenProducts]
-    newProduct.push(e.target.parentElement.innerText)
-    setChoosenProducts(newProduct)
-    // set
+    const allProducts = [...choosenProducts]
+    console.log(id, category, imgUrl, price, productName);
+    const newProduct = {
+      "id": id,
+      "category": category,
+      "imgUrl": imgUrl,
+      "price": price,
+      "productName": productName,
+      "productAmount": 1
+    }
+    allProducts.push(newProduct)
+    setChoosenProducts(allProducts)
+    const numPrice = price.slice(2)
+    setTotalPrice(prev => prev + Number(numPrice))
   }
   useEffect(() => {
 
@@ -38,20 +52,20 @@ function ProductCard() {
 
   return (
     <div className='products-con'>
-      {!searchData ? <h1>hello world</h1> : searchData.map(({ id, category, imgUrl, price, productName }) =>
+      {!filteredStoreProducts ? <h1>hello world</h1> : filteredStoreProducts.map(({ id, category, imgUrl, price, productName }) =>
         <div className="container" key={id}>
           <div className="card">
             <div className="imgBx">
               <img src={imgUrl} />
               <div className="contentBx">
-                <h2>{productName}</h2>
+                <h2 className='text-card' >{productName}</h2>
                 <div className="size">
-                  <h3>{category}</h3>
+                  <h3 className='text-card'>{category}</h3>
                 </div><br /><br /><br /><br />
                 <div className="color">
-                  <h3>{price}</h3>
+                  <h3 className='text-card'>{price}</h3>
                 </div>
-                <button onClick={handleClickAddToCart}>Add To Cart</button>
+                <button onClick={() => handleClickAddToCart(id, category, imgUrl, price, productName)}>Add To Cart</button>
               </div>
             </div>
           </div>

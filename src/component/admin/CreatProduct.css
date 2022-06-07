@@ -1,0 +1,12 @@
+.create-product {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 252, 176, 0.767);
+}
+.create-btn{
+  background-color: none;
+}
