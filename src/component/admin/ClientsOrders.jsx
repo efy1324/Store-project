@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useStore } from '../../context/store.provider'
 // here need to show the whole information from the cartOrderForm on any client order
 import './ClientsOrders.css'
 import emailjs from 'emailjs-com'
+import { storeContext } from '../../context/context'
 
 
 
 function ClientsOrders() {
   const { clients, } = useStore()
-
+  const { choosenProducts } = useContext(storeContext)
   console.log(clients);
 
 
@@ -27,28 +28,33 @@ function ClientsOrders() {
   return (
     <div className='clients-orders'>
       <div className='client-card'>
-      <div className='client-details-card'>
-      {clients.map(({ firstName, lastName, number, Email }, index) => (
-        <div key={index}>
-         <h3>client details</h3>
-          <div>name:  {firstName}</div>
-          <div>lastName:  {lastName}</div>
-          <div> mail:   {Email}</div>
-          <div>phone:  {number}</div>
+        <div className='client-details-card'>
+          {clients.map(({ firstName, lastName, number, Email }, index) => (
+            <div key={index}>
+              <h3>client details</h3>
+              <div>name:  {firstName}</div>
+              <div>lastName:  {lastName}</div>
+              <div> mail:   {Email}</div>
+              <div>phone:  {number}</div>
+            </div>
+          ))}
         </div>
-      ))}
+        {choosenProducts.map(({category, imgUrl, price, productName, productAmount }) => (
+          <>
+            <h3>oreder-details </h3>
+            <div>productName:{productName}</div>
+            <div>category:{category}</div>
+            <div>total price:{price}</div>
+            <div>{productAmount}</div>
+          </>
+        ))}
+        <div className='client-order-details'>
+          <form onSubmit={sendEmail}>
+            <textarea id='massage-to-client' name='massage' rows="2" cols="50" ></textarea>
+            <button type='submit' className='btn-order-clients'>order completed</button>
+          </form>
+        </div>
       </div>
-      <div className='client-order-details'>
-        <h3>oreder-details</h3>
-       <div>productName:</div> 
-       <div>category:</div>   
-       <div>total price:</div>
-       <form onSubmit={sendEmail}>
-      <textarea id='massage-to-client' name='massage'rows="2" cols="50" ></textarea>
-       <button type='submit' className='btn-order-clients'>order completed</button>  
-       </form> 
-        </div>
-        </div>
     </div>
   )
 }

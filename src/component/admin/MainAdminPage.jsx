@@ -31,7 +31,7 @@ function MainAdminPage() {
           <div className='navbar'>
             <MainSearchBar />
             <div className='btns-container'>
-            <button onClick={onClickGraphes}><i className="fa-solid fa-chart-line">Data graphes</i></button>
+            <button onClick={onClickGraphes}><i className="fa-solid fa-chart-line"></i> Data graphes</button>
             <button onClick={onClickOrders}><i className="fa-solid fa-cart-arrow-up"></i> client orders</button>
             <button onClick={onClickCreate}><i className="fa-solid fa-circle-plus"></i> create new product</button>
             </div>

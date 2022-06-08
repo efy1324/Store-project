@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 // import { ROUTES_LINKS } from '../../routes/routes'
 import { useStore } from '../../context/store.provider'
 import emailjs from 'emailjs-com'
+import { ROUTES_LINKS } from '../../routes/routes'
 
 function CartOrderForm() {
 
@@ -68,7 +69,7 @@ function CartOrderForm() {
   }
   const handleNavigation = () => {
     // need to route back to 
-    Navigate('/store');
+    Navigate(ROUTES_LINKS.TO_STORE);
   }
   const onChangeName = ({ target: { value } }) => {
     setClient(prev => ({ ...prev, firstName: value }))
