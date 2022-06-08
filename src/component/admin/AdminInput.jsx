@@ -4,15 +4,15 @@
 // main page need to have crud products with search and  ( order details) (showing Data by graph)(list without pictures and with all categorry code)
 
 import React, { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
-import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
+import { useNavigate } from 'react-router-dom';
+import {  ROUTES_LINKS } from '../../routes/routes';
 import './admin.css'
 
 function AdminInput() {
 
   const [value, setValue] = useState("")
   const password = '55abre33'
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
   const onInputChange = ({ target: { value } }) => {
     console.log(value);

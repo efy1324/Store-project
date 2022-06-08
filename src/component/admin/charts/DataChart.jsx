@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Line, Pie } from 'react-chartjs-2';
+// import { Line, Pie } from 'react-chartjs-2';
 import BarChart from './BarChart'
 import './DataChart.css'
 import LineChart from './LineChart';
@@ -7,7 +7,8 @@ import PieChart from './PieChart';
 import { data } from './someData';
 function DataChart() {
   // to do here provider for the userData that this component will duplicate couple of time with diffrent data
-  const [userData, setUserData] = useState({
+  //,setUserData
+  const [userData ] = useState({
     labels: data.map((data) => data.category),
     datasets: [{
       label: 'כמות מוצרים לפי קטוגריה',

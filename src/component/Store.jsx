@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { useStore } from '../context/store.provider'
+// import { useStore } from '../context/store.provider'
 import { ROUTES } from '../routes/routes'
 import AdminInput from './admin/AdminInput'
 import MainAdminPage from './admin/MainAdminPage'
@@ -12,7 +12,7 @@ import ProductCard from './user/ProductCard'
 import MainSearchBar from './user/Search/MainSearchBar'
 import './Store.css'
 function Store() {
-  const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
+  // const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
   // console.log({ storeProducts, filteredStoreProducts, handleFilterKeyInput })
   return (
     <div className='mainPage'>
@@ -21,7 +21,7 @@ function Store() {
           <>
             <div className='navbar'>
               <div className='logo'>
-                <img src={require(`../assets/images/logo.png`)}/>
+                <img src={require(`../assets/images/logo.png`)} alt = "logo"/>
               </div>
               <MainSearchBar />
               <Cart />

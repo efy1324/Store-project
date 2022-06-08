@@ -1,14 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import { storeContext } from '../../context/context'
 import './ProductCard.css'
 import './GridCard.css';
 import { useStore } from '../../context/store.provider';
-import CartOrderForm from './CartOrderForm';
+// import CartOrderForm from './CartOrderForm';
 
 
 function ProductCard() {
-  const { setTotalPrice, setNumProducts, storeData, searchData, setSearchData, value, setChoosenProducts, choosenProducts } = useContext(storeContext)
-  const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
+  const { setTotalPrice, setNumProducts, storeData, searchData, setSearchData,  setChoosenProducts, choosenProducts } = useContext(storeContext)
+  //, handleFilterKeyInput
+  const { filteredStoreProducts } = useStore()
 
   // const {  imgUrl, name, cattegory, price } = SearchData;
 
@@ -56,7 +57,7 @@ function ProductCard() {
         <div className="container" key={id}>
           <div className="card">
             <div className="imgBx">
-              <img src={imgUrl} />
+              <img src={imgUrl} alt ={productName} />
               <div className="contentBx">
                 <h2 className='text-card' >{productName}</h2>
                 <div className="size">

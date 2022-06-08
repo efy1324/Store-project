@@ -23,7 +23,7 @@ export const StoreProvider = ({ children }) => {
   const [storeProducts, setStoreProducts] = useState([]);
   const [filteredStoreProducts, setFilteredStoreProducts] = useState([]);
   const [filterKey, setFilterKey] = useState("")
-  const [EditProduct, setEditProduct] = useState([])
+  // const [EditProduct, setEditProduct] = useState([])
   const [clients, setClients] = useState([
     {
       firstName: 'אפרים',

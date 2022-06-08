@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
 import ClientsOrders from './ClientsOrders';
 import CreateProduct from './CreateProduct';

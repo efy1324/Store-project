@@ -1,14 +1,14 @@
 //showing num of products and total price, and icon of cart
 // onClick need to route to CartOrderForm component
 import React, { useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { storeContext } from '../../context/context';
-import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
+import { ROUTES_LINKS } from '../../routes/routes';
 import './Cart.css'
 function Cart() {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
-  const {numProducts} = useContext(storeContext)
+  const { numProducts } = useContext(storeContext)
 
   const handleNavigation = () => {
     console.log("clicked")

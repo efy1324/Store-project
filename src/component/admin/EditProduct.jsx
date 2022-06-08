@@ -1,12 +1,12 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
+import React, {  useLayoutEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useStore } from '../../context/store.provider';
 
 function EditProduct(props) {
 
   const params = useParams()
-  const { storeProducts, setStoreProducts } = useStore()
+  const { storeProducts} = useStore()
   // const [productNameValue, setProductNameValue] = useState('')
   // const [categoryValue, setCategoryValue] = useState('')
   // const [imgUrlValue, setImgUrlValue] = useState('')
@@ -21,7 +21,7 @@ function EditProduct(props) {
   useLayoutEffect(() => {
     const prod = storeProducts.find(p => p.id === params.id * 1)
     setProduct(prod)
-  }, [])
+  },[])
   const onChangeName = ({ target: { value } }) => {
     setProduct(prev => ({ ...prev, productName: value }))
   }

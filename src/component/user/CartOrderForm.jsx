@@ -8,8 +8,8 @@ import { storeContext } from '../../context/context'
 import './ProductCard.css'
 import './CartOrder.css'
 import MainSearchBar from './Search/MainSearchBar'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { ROUTES_LINKS } from '../../routes/routes'
+import { useNavigate } from 'react-router-dom'
+// import { ROUTES_LINKS } from '../../routes/routes'
 import { useStore } from '../../context/store.provider'
 import emailjs from 'emailjs-com'
 
@@ -124,7 +124,7 @@ function CartOrderForm() {
     <div className='cart-order-form-page'>
       <div className='navbar'>
         <div className='logo'>
-          <img src={require(`../../assets/images/logo.png`)} />
+          <img src={require(`../../assets/images/logo.png`)} alt = "logo" />
         </div>
         {/* the function search not working because there is no data in this components */}
         <MainSearchBar />
@@ -136,7 +136,7 @@ function CartOrderForm() {
             <div className="container" key={id}>
               <div key={id} className="card">
                 <div className="imgBx">
-                  <img src={imgUrl} />
+                  <img src={imgUrl} alt={productName}/>
                   <div className="contentBx">
                     <h2>{productName}</h2>
                     <div className="size">

@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import axios from 'axios'
-import ProductCard from '../ProductCard'
+// import ProductCard from '../ProductCard'
 import { storeContext } from '../../../context/context'
 // import './GridCard.css';
 
 function StoreData() {
-
-  const { storeData, setStoreData} = useContext(storeContext)
+  // storeData,
+  const { setStoreData} = useContext(storeContext)
 
   useEffect(() => {
     const gettingData = async () => {

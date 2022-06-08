@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { storeContext } from '../../../context/context'
 import { useStore } from '../../../context/store.provider'
-import StoreData from '../GettingData/StoreData'
+// import StoreData from '../GettingData/StoreData'
 import './searchBar.css'
 // need to be able to free search from the whole storeData and display it, need to remember to clear after that in any change after 0.5 seccond will show the resault (if fillter so to do another state and not touching the main storeData)
 
 function MainSearchBar() {
-  const { storeData, searchData, setSearchData, value, setValue } = useContext(storeContext)
-  const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
-  const onInputChange = ({ target: { value: inputValue } }) => {
-    console.log(inputValue);
-    setValue(inputValue)
-  }
+  const { storeData, searchData, setSearchData, value } = useContext(storeContext)
+  const { handleFilterKeyInput } = useStore()
+  // const onInputChange = ({ target: { value: inputValue } }) => {
+  //   console.log(inputValue);
+  //   setValue(inputValue)
+  // }
 
   useEffect(() => {
     if (value === '') {

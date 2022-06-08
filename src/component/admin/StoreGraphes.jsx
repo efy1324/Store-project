@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bar } from 'react-chartjs-2'
+// import { Bar } from 'react-chartjs-2'
 import DataChart from './charts/DataChart'
 import './StoreGraphes.css'
 // here need to play with the chart js and create a graph that showing different kind of data starting from amount of products per category and also statistic this I couldn't show on the industry need after to study next.js

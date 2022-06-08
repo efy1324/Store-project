@@ -1,16 +1,13 @@
 import axios from 'axios'
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { useStore } from '../../context/store.provider'
 import { ROUTES_LINKS } from '../../routes/routes'
 import StoreData from '../user/GettingData/StoreData'
-import ProductCard from '../user/ProductCard'
-import MainSearchBar from '../user/Search/MainSearchBar'
-import EditProduct from './EditProduct'
 import './CrudProducts.css'
 
 function CrudProducts() {
-  const { filteredStoreProducts, handleClickAddToCart } = useStore()
+  const { filteredStoreProducts } = useStore()
 
 
   const navigate = useNavigate();
@@ -31,7 +28,7 @@ function CrudProducts() {
           <div className="container" key={id}>
             <div className="card">
               <div className="imgBx">
-                <img src={imgUrl} />
+                <img src={imgUrl} alt ="product" />
                 <div className="contentBx">
                   <h2>{productName}</h2>
                   <div className="size">
