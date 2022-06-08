@@ -41,9 +41,9 @@ function MainSearchBar() {
     // console.log(searchData);
     // console.log(storeData);
   }, [value])
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [searchData])
+  // }, [searchData])
 
 
   // need to do some loop that checking insid the whole data if this input inside and the same time deleting from the screen the just the includes ones

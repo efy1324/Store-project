@@ -104,7 +104,7 @@ function CartOrderForm() {
   function sendEmail(e) {
     e.preventDefault()
 
-    emailjs.sendForm('service_b5iiz0p', 'template_3qczj0s', e.target, 'Agk1F7ErqUg3L6lOM')
+    emailjs.sendForm('service_b5iiz0p', 'template_beowocr', e.target, 'Agk1F7ErqUg3L6lOM')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
@@ -124,7 +124,7 @@ function CartOrderForm() {
     <div className='cart-order-form-page'>
       <div className='navbar'>
         <div className='logo'>
-          <img src={require(`../../assets/images/logo.png`)} alt = "logo" />
+          <img src={require(`../../assets/images/logo.png`)} alt="logo" />
         </div>
         {/* the function search not working because there is no data in this components */}
         <MainSearchBar />
@@ -136,7 +136,7 @@ function CartOrderForm() {
             <div className="container" key={id}>
               <div key={id} className="card">
                 <div className="imgBx">
-                  <img src={imgUrl} alt={productName}/>
+                  <img src={imgUrl} alt={productName} />
                   <div className="contentBx">
                     <h2>{productName}</h2>
                     <div className="size">
@@ -197,9 +197,9 @@ function CartOrderForm() {
             <input onChange={onChangeMail} type="email" name='subject' value={client.Email} />
 
           </div>
-         
-            <div className='btn-order'>  <button type='submit' >complete your order</button></div>
-          
+
+          <div className='btn-order'>  <button type='submit' >complete your order</button></div>
+
         </form>
       </div>
     </div>

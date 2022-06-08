@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from '../../context/store.provider'
 // here need to show the whole information from the cartOrderForm on any client order
 import './ClientsOrders.css'
-
+import emailjs from 'emailjs-com'
 
 
 
@@ -10,6 +10,19 @@ function ClientsOrders() {
   const { clients, } = useStore()
 
   console.log(clients);
+
+
+  function sendEmail(e) {
+    e.preventDefault()
+
+    emailjs.sendForm('service_b5iiz0p', 'template_3qczj0s', e.target, 'Agk1F7ErqUg3L6lOM')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+
+  }
 
   return (
     <div className='clients-orders'>
@@ -30,7 +43,10 @@ function ClientsOrders() {
        <div>productName:</div> 
        <div>category:</div>   
        <div>total price:</div>
-       <button className='btn-order-clients'>order completed</button>   
+       <form onSubmit={sendEmail}>
+      <textarea id='massage-to-client' name='massage'rows="2" cols="50" ></textarea>
+       <button type='submit' className='btn-order-clients'>order completed</button>  
+       </form> 
         </div>
         </div>
     </div>

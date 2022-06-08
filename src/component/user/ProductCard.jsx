@@ -49,6 +49,7 @@ function ProductCard() {
       const copiedData = [...storeData]
       setSearchData(copiedData)
     }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeData])
 
   return (
