@@ -1,6 +1,69 @@
 .clients-orders {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* background-color: rgb(32, 3, 3); */
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(120 43 43);
 }
+.client-card{
+  background-color: cadetblue;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  height:300px;
+}
+.client-details-card{
+  display: flex;
+  flex-direction: column;
+  height: 55%;
+}
+.client-details-card div{
+padding: 5px;
+color: #d1ffff;
+}
+.client-order-details{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 45%;
+}
+.client-order-details div{
+  /* color: blue; */
+}
+.btn-order-clients{
+  display: flex;
+  justify-content: center;
+  }
+  .btn-order-clients{
+    width: 204px;
+    height: 40px;
+    margin: 0px 8px;
+    padding: 4px 24px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 2px inset;
+    font-size: 12px;
+    cursor: pointer;
+    transition-property: color;
+    transition-property: background-color;
+    transition: 0.3s;
+    font-family: var(--font-family);
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid black;
+    cursor: pointer;
+    padding: 10px;
+    transition-property: color;
+    transition-property: background-color;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-order-clients:hover{
+    background-color: black;
+    color: white;
+  }

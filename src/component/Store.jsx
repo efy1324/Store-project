@@ -37,14 +37,14 @@ function Store() {
         <Route path={ROUTES.ORDER_FORM} element={<CartOrderForm />} />
         <Route path={ROUTES.ADMIN_SITE + ROUTES.TRAILING_PATH} element={<MainAdminPage />} />
       </Routes>
-      <div className='footer'>
+      {/* <div className='footer'>
         wase
         maps
         טלפון
         פקס
         מייל
         צור קשר?
-      </div>
+      </div> */}
       {/* {productsDataForStore.map(product => <ProductCard keyforProduct={product[0]} name={product[3]} imgUrl={product[5]} cattegory={product[2]} price={product[4]} id={product[0]} />)} */}
     </div>
   )

@@ -10,7 +10,7 @@ function StoreGraphes() {
       <div className='navbar'>
         <h3>גרפי מידע על תהליכים שונים בחנות</h3>
         <div>
-          <label for="cars">Choose a category:  <select name="category" id="cars">
+          <label htmlFor="cars">Choose a category:  <select name="category" id="cars">
             <option value="volvo">אביזרי אמבטיה</option>
             <option value="saab">אינסטלציה</option>
             <option value="mercedes">ברזים</option>

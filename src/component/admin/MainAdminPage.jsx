@@ -9,6 +9,7 @@ import EditProduct from './EditProduct';
 import StoreGraphes from './StoreGraphes';
 import '../Store.css'
 import MainSearchBar from '../user/Search/MainSearchBar';
+import './MainAdminPage.css'
 // here need to show the whole products with the search opion that under every card there is buttons edit and delete
 // and on the right side there is create this will be open a form that on submit need to creat the element inside the mokeApi
 function MainAdminPage() {
@@ -29,9 +30,11 @@ function MainAdminPage() {
         <Route path={ROUTES.ROOT} element={<>
           <div className='navbar'>
             <MainSearchBar />
+            <div className='btns-container'>
             <button onClick={onClickGraphes}><i className="fa-solid fa-chart-line">Data graphes</i></button>
             <button onClick={onClickOrders}><i className="fa-solid fa-cart-arrow-up"></i> client orders</button>
             <button onClick={onClickCreate}><i className="fa-solid fa-circle-plus"></i> create new product</button>
+            </div>
           </div>
           <CrudProducts />
         </>} />

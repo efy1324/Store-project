@@ -51,7 +51,7 @@ function MainSearchBar() {
 
   return (
     <div className='search-bar'>
-      <label htmlFor="search"><i className="fa-solid fa-magnifying-glass"></i></label>
+      <label className='search' htmlFor="search"><i className="fa-solid fa-magnifying-glass"></i></label>
       <input placeholder='חיפוש מוצרים' onChange={handleFilterKeyInput} type="text" />
     </div>
   )

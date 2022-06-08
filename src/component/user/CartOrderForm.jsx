@@ -11,6 +11,7 @@ import MainSearchBar from './Search/MainSearchBar'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { ROUTES_LINKS } from '../../routes/routes'
 import { useStore } from '../../context/store.provider'
+import emailjs from 'emailjs-com'
 
 function CartOrderForm() {
 
@@ -55,7 +56,7 @@ function CartOrderForm() {
     // need to remove the product from the cart maby to set state to the list of products and remove this obj
   }
   const handleClickMinus = (index, price) => {
-    if (choosenProducts[index].productAmount > 0) {
+    if (choosenProducts[index].productAmount > 1) {
       const newArrProducts = [...choosenProducts]
       newArrProducts[index].productAmount = newArrProducts[index].productAmount - 1;
       setChoosenProducts(newArrProducts)
@@ -93,11 +94,27 @@ function CartOrderForm() {
     }
     newClients.push(newClient)
     setClients(newClients)
+    sendEmail(e)
+
     // need to send all fields of data as object to array that will hold the orders
     // next need to do active order and completed order
     // also need to conect to the api that will send mail
     // the last thing its to show massage to the user your order comlete succesful and you got mail with details, go to a new order
   }
+  function sendEmail(e) {
+    e.preventDefault()
+
+    emailjs.sendForm('service_b5iiz0p', 'template_3qczj0s', e.target, 'Agk1F7ErqUg3L6lOM')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+
+  }
+
+
+
   useEffect(() => {
     console.log(clients);
   }, [clients])
@@ -117,7 +134,7 @@ function CartOrderForm() {
         {choosenProducts.map(({ id, category, imgUrl, price, productName, productAmount }, index) =>
           <>
             <div className="container" key={id}>
-              <div className="card">
+              <div key={id} className="card">
                 <div className="imgBx">
                   <img src={imgUrl} />
                   <div className="contentBx">
@@ -131,7 +148,7 @@ function CartOrderForm() {
                     <button onClick={() => handleClickAdd(index, price)}>+ </button>
                     <button onClick={() => handleClickMinus(index, price)}>- </button>
                     <button onClick={() => handleClickDelete(index, price)}>Remove</button>
-                    <span id='numProduct'>{productAmount}</span>
+                    <div id='numProduct'>{productAmount}</div>
                     {/* to bring from awsome font icons of plus minus and Delete */}
                   </div>
                 </div>
@@ -141,47 +158,50 @@ function CartOrderForm() {
         )}
       </div>
       <div className='total-price'>total price: {totalPrice} &#8362;</div>
-      <form className='order-form' onSubmit={handleClickOrder}>
-        <div className='form-container'>
-          <div className="payment">
-            <h3>Payment</h3>
-            <label htmlFor="fname">Accepted Cards</label>
-            <div className="icon-container">
-              <i className="fa-brands fa-cc-visa visa" ></i>
-              <i className="fa-brands fa-cc-mastercard mastercard"></i>
-              <i className="fa-brands fa-cc-amex amex"></i>
-            </div>
-            <label htmlFor="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
-            <label htmlFor="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
-            <label htmlFor="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September" />
-
-            <div className="row">
-              <div className="col-50">
-                <label htmlFor="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2026" />
-              </div>
-              <div className="col-50">
-                <label htmlFor="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352" />
-              </div>
-            </div>
+      <div className='form-container'>
+        <div className="payment">
+          <h3>Payment</h3>
+          <label htmlFor="fname">Accepted Cards</label>
+          <div className="icon-container">
+            <i className="fa-brands fa-cc-visa visa" ></i>
+            <i className="fa-brands fa-cc-mastercard mastercard"></i>
+            <i className="fa-brands fa-cc-amex amex"></i>
           </div>
-          <div className='client-details'>
-            <label htmlFor="firstName"><i className="fa-solid fa-user"></i> שם פרטי</label>
-            <input onChange={onChangeName} type="text" value={client.firstName} />
-            <label htmlFor="firstName">שם משפחה</label>
-            <input onChange={onChangeLastName} type="text" value={client.lastName} />
-            <label htmlFor="number"> <i className="fa-solid fa-phone"></i>מספר טלפון</label>
-            <input onChange={onChangeNumber} value={client.number} type="phone" placeholder="0504624444" />
-            <label htmlFor="Mail"> <i className="fa-solid fa-envelope"></i> מייל</label>
-            <input onChange={onChangeMail} type="email" value={client.Email} />
+          <label htmlFor="cname">Name on Card</label>
+          <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
+          <label htmlFor="ccnum">Credit card number</label>
+          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
+          <label htmlFor="expmonth">Exp Month</label>
+          <input type="text" id="expmonth" name="expmonth" placeholder="September" />
+
+          <div className="row">
+            <div className="col-50">
+              <label htmlFor="expyear">Exp Year</label>
+              <input type="text" id="expyear" name="expyear" placeholder="2026" />
+            </div>
+            <div className="col-50">
+              <label htmlFor="cvv">CVV</label>
+              <input type="text" id="cvv" name="cvv" placeholder="352" />
+            </div>
           </div>
         </div>
-        <button type='submit' >complete your order</button>
-      </form>
+        <form className='order-form' onSubmit={handleClickOrder}>
+          <div className='client-details'>
+            <label htmlFor="firstName"><i className="fa-solid fa-user"></i> שם פרטי</label>
+            <input onChange={onChangeName} type="text" name='firstName' value={client.firstName} />
+            <label htmlFor="firstName">שם משפחה</label>
+            <input onChange={onChangeLastName} type="text" name="lastName" value={client.lastName} />
+            <label htmlFor="number"> <i className="fa-solid fa-phone"></i>מספר טלפון</label>
+            <input onChange={onChangeNumber} name='number' value={client.number} type="phone" placeholder="0504624444" />
+            <label htmlFor="Mail"> <i className="fa-solid fa-envelope"></i> מייל</label>
+            <input onChange={onChangeMail} type="email" name='subject' value={client.Email} />
+
+          </div>
+         
+            <div className='btn-order'>  <button type='submit' >complete your order</button></div>
+          
+        </form>
+      </div>
     </div>
   )
 }

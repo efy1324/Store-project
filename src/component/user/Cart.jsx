@@ -4,7 +4,7 @@ import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { storeContext } from '../../context/context';
 import { ROUTES, ROUTES_LINKS } from '../../routes/routes';
-
+import './Cart.css'
 function Cart() {
   const location = useLocation();
   const navigate = useNavigate();
