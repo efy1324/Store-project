@@ -17,7 +17,7 @@ import { ROUTES_LINKS } from '../../routes/routes'
 function CartOrderForm() {
 
   const Navigate = useNavigate()
-  const { clients, setClients } = useStore()
+  const { clients, setClients,setOrder } = useStore()
   const { choosenProducts, totalPrice, setChoosenProducts, setTotalPrice, setNumProducts } = useContext(storeContext)
   const [client, setClient] = useState({
     firstName: '',
@@ -96,6 +96,10 @@ function CartOrderForm() {
     newClients.push(newClient)
     setClients(newClients)
     sendEmail(e)
+    setOrder([...choosenProducts])
+    setChoosenProducts([])
+    setTotalPrice(0)
+    setNumProducts(0)
 
     // need to send all fields of data as object to array that will hold the orders
     // next need to do active order and completed order

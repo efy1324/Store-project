@@ -2,6 +2,7 @@ import React, { useContext, useEffect} from 'react'
 import { storeContext } from '../../context/context'
 import './ProductCard.css'
 import './GridCard.css';
+import './GridCardResponsive.css'
 import { useStore } from '../../context/store.provider';
 // import CartOrderForm from './CartOrderForm';
 

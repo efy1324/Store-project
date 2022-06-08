@@ -8,7 +8,7 @@ import { storeContext } from '../../context/context'
 
 
 function ClientsOrders() {
-  const { clients, } = useStore()
+  const { clients,order} = useStore()
   const { choosenProducts } = useContext(storeContext)
   console.log(clients);
 
@@ -36,23 +36,26 @@ function ClientsOrders() {
               <div>lastName:  {lastName}</div>
               <div> mail:   {Email}</div>
               <div>phone:  {number}</div>
+              <form className='form-client' onSubmit={sendEmail}>
+                <textarea resize="none" id='massage-to-client' name='massage' rows="2" cols="50" ></textarea>
+                <input hidden={true} type="mail" name= 'client' value={Email}/>
+                <button type='submit' className='btn-order-clients'>order completed</button>
+              </form>
             </div>
           ))}
         </div>
-        {choosenProducts.map(({category, imgUrl, price, productName, productAmount }) => (
-          <>
+        <div className='oreder-details'>
+        {order.map(({ category, imgUrl, price, productName, productAmount }) => (
+          <div >
             <h3>oreder-details </h3>
             <div>productName:{productName}</div>
             <div>category:{category}</div>
             <div>total price:{price}</div>
             <div>{productAmount}</div>
-          </>
+            <div className='client-order-details'>
+            </div>
+          </div>
         ))}
-        <div className='client-order-details'>
-          <form onSubmit={sendEmail}>
-            <textarea id='massage-to-client' name='massage' rows="2" cols="50" ></textarea>
-            <button type='submit' className='btn-order-clients'>order completed</button>
-          </form>
         </div>
       </div>
     </div>

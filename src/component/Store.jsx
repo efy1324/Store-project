@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 // import { useStore } from '../context/store.provider'
 import { ROUTES } from '../routes/routes'
@@ -14,6 +14,8 @@ import './Store.css'
 function Store() {
   // const { storeProducts, filteredStoreProducts, handleFilterKeyInput } = useStore()
   // console.log({ storeProducts, filteredStoreProducts, handleFilterKeyInput })
+
+
   return (
     <div className='mainPage'>
       <Routes>
@@ -21,16 +23,15 @@ function Store() {
           <>
             <div className='navbar'>
               <div className='logo'>
-                <img src={require(`../assets/images/logo.png`)} alt = "logo"/>
+                <img src={require(`../assets/images/logo.png`)} alt="logo" />
               </div>
               <MainSearchBar />
               <Cart />
               <AdminInput />
-
             </div>
             <main>
-            <StoreData />
-            <ProductCard />
+              <StoreData />
+              <ProductCard />
             </main>
           </>
         } />

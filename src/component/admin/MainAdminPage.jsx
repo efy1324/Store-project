@@ -24,7 +24,7 @@ function MainAdminPage() {
     navigate(ROUTES_LINKS.TO_CREATE_PRODUCT);
   }
   return (
-    <div>
+    <>
 
       <Routes>
         <Route path={ROUTES.ROOT} element={<>
@@ -44,7 +44,7 @@ function MainAdminPage() {
         <Route path={ROUTES.EDIT_PRODUCT} element={<EditProduct />} />
       </Routes>
 
-    </div>
+    </>
   )
 }
 

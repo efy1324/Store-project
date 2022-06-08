@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import axios from 'axios'
 // import ProductCard from '../ProductCard'
 import { storeContext } from '../../../context/context'
@@ -6,9 +6,10 @@ import { storeContext } from '../../../context/context'
 
 function StoreData() {
   // storeData,
-  const { setStoreData} = useContext(storeContext)
+  const { setStoreData, storeData} = useContext(storeContext)
 
   useEffect(() => {
+
     const gettingData = async () => {
       const response = await axios.get('https://cors-anywhere.herokuapp.com/https://apimocha.com/efy1324/store')
       console.log(response);
@@ -17,12 +18,13 @@ function StoreData() {
       setStoreData(storeData1)
     }
     gettingData()
+
   }, [])
-  // useEffect(()=>{
-  //   if(!storeData==[]){
-  //     setSearchData([...storeData])
+  // useEffect(() => {
+  //   if (!storeData == []) {
+  //     setSpinner(, console.log(spinner))
   //   }
-  // },[storeData])
+  // }, [storeData])
 
   return (
     < >

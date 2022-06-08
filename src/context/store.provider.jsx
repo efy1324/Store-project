@@ -23,7 +23,22 @@ export const StoreProvider = ({ children }) => {
   const [storeProducts, setStoreProducts] = useState([]);
   const [filteredStoreProducts, setFilteredStoreProducts] = useState([]);
   const [filterKey, setFilterKey] = useState("")
-  // const [EditProduct, setEditProduct] = useState([])
+  const [order, setOrder] = useState([{
+    id: "",
+    category: 'מוצרי חשמל',
+    imgUrl: "כלבו אפרת",
+    price: "120",
+    productName: "נורת לד לסוכה מוגן מים",
+    productAmount: "2",
+  }, 
+  {
+    id: "",
+    category: 'מוצרי חשמל',
+    imgUrl: "כלבו אפרת",
+    price: "180",
+    productName: "פלטת שבת 4 סירים",
+    productAmount: "1",
+  }])
   const [clients, setClients] = useState([
     {
       firstName: 'אפרים',
@@ -59,7 +74,7 @@ export const StoreProvider = ({ children }) => {
 
 
   return (
-    <StoreContext.Provider value={{ storeProducts, filteredStoreProducts, handleFilterKeyInput, setClients, clients }} >
+    <StoreContext.Provider value={{ storeProducts, filteredStoreProducts, handleFilterKeyInput, setClients, clients, order, setOrder }} >
       {children}
     </StoreContext.Provider>
   )
